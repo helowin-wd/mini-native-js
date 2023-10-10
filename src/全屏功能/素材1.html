@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .content {
+        width: 100%;
+        background-color: #dcdcdc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn">进入全屏</button>
+      <p class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum officiis dolore deleniti earum totam repudiandae pariatur atque, quo modi aliquam
+        itaque libero amet ducimus perspiciatis, ad ut soluta numquam. Aut. Ut voluptatibus sed nostrum repellendus repellat provident corrupti molestias
+        commodi dolores dicta quia nemo laudantium enim fuga, sint maiores quos ullam ad distinctio perferendis, ipsam dolorem officiis iste facilis. Est. Nihil
+        quia aperiam aspernatur molestiae quo velit illum qui dolor similique officiis ab ad quis tempora exercitationem quae, perspiciatis natus? Praesentium
+        rem ipsum error illum, culpa pariatur cum earum autem.
+      </p>
+    </div>
+
+    <script>
+      const btn = document.querySelector('.btn')
+      const p = document.querySelector('.container')
+
+      btn.onclick = function () {
+        toggle(p)
+      }
+
+      function getPropertyName(names, target) {
+        return names.find(name => name in target)
+      }
+
+      const funcNames = ['requestFullscreen', 'mozRequestFullscreen', 'webkitRequestFullscreen', 'msRequestFullscreen']
+
+      const enterFullScreenName = getPropertyName(funcNames, document.documentElement)
+
+      // 进入全屏
+      function enter(ele) {
+        enterFullScreenName && ele[enterFullScreenName]()
+      }
+      // 退出全屏
+      const exitFullScreenName = getPropertyName(funcNames, document)
+      function exit() {
+        exitFullScreenName && document[exitFullScreenName]()
+      }
+
+      const fullEleName = getPropertyName(funcNames, document)
+      function fullEle() {
+        return document[fullEleName] || null
+      }
+
+      // 是否处于全屏
+      function isFull() {
+        return !!fullEle()
+      }
+
+      function toggle(ele = document.documentElement) {
+        isFull() ? exit() : enter(ele)
+      }
+    </script>
+  </body>
+</html>

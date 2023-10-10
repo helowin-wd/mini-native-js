@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>全屏功能🔥</title>
+    <style>
+      .fullScreen_panorama {
+        background-color: #dcdcdc;
+        width: 100%;
+        height: 20vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <button class="btn-enter" onclick="fullScreen()">全屏</button>
+    <button class="btn-exit" onclick="fullExit()">退出全屏</button> -->
+
+    <div class="fullScreen_panorama">
+      即将进入全屏的内容
+
+      <button class="btn-enter">全屏</button>
+      <button class="btn-exit">退出全屏</button>
+    </div>
+  </body>
+
+  <script src="./fullScreen.js"></script>
+
+  <script>
+    const btnEnter = document.querySelector('.btn-enter')
+    const btnExit = document.querySelector('.btn-exit')
+
+    const element = document.querySelector('.fullScreen_panorama')
+
+    btnEnter.onclick = function () {
+      fullScreen(element)
+    }
+    btnExit.onclick = function () {
+      fullExit(element)
+    }
+  </script>
+</html>
