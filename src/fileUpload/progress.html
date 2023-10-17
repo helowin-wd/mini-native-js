@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>进度条</title>
+    <style>
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 5px;
+        background-color: #ddd;
+      }
+
+      #progress {
+        height: 100%;
+        background-color: #007bff;
+        width: 0%;
+        transition: width 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="progress-bar">
+      <div class="progress-num"></div>
+      <div id="progress"></div>
+    </div>
+
+    <script>
+      var progressBar = document.getElementById('progress')
+      var progressNum = document.querySelector('.progress-num')
+      var progress = 0
+      var intervalId = setInterval(function () {
+        progress +=1
+        if (progress >= 100) {
+          clearInterval(intervalId)
+        }
+        // progressNum.innerHTML = Math.floor(progress) + '%'
+        progressBar.style.width = progress + '%'
+      }, 50)
+    </script>
+  </body>
+</html>

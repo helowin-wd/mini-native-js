@@ -1,0 +1,11 @@
+GET / upload/single HTTP/ 1.1
+Host: test.com:9527
+Content-Type: multipart/form-data;boundary=aaa
+
+--aaa
+Content-Disposition: form-data; name="avatar";filename="small.jpg"
+Content-Type: image/png
+
+<./small.png
+
+---aa--

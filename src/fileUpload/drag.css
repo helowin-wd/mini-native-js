@@ -1,0 +1,154 @@
+.upload {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 1px dotted #ccc;
+  cursor: pointer;
+}
+
+/* 
+  当 select 时
+    upload-select 显示
+    upload-progress 隐藏
+    upload-result 隐藏
+*/
+.upload.select .upload-select{
+  display: block;
+}
+.upload.select .upload-progress{
+  display: none;
+}
+.upload.select .upload-result{
+  display: none;
+}
+.upload.select .preview {
+  display: none;
+}
+
+/* 
+  当 progress 时
+    upload-select 隐藏
+    upload-progress 显示
+    upload-result 隐藏
+*/
+.upload.progress .upload-select{
+  display: none;
+}
+.upload.progress .upload-progress{
+  display: block;
+  background: #ccc;
+  height: 100%;
+}
+.upload.progress .upload-result{
+  display: none;
+}
+.upload.progress .preview {
+  display: none;
+}
+
+/* 
+ 当 result 时
+    upload-select 隐藏
+    upload-progress 隐藏
+    upload-result 显示
+*/
+.upload.result .upload-select{
+  display: none;
+}
+.upload.result .upload-progress{
+  display: none;
+}
+.upload.result .upload-result{
+  display: block;
+}
+
+.upload-select::before {
+  content: '';
+  width: 60px;
+  background: #ccc;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.upload-select::after {
+  content: '';
+  width: 60px;
+  background: #ccc;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+
+.upload-select input {
+  /* display: none; */
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.upload-select.draging,
+.upload-select:hover {
+  border-color: var(--primary-color);
+}
+
+.upload-select.draging {
+  background: #cedeed;
+}
+.upload-progress {
+  background: #cccccc;
+  /* opacity: 0; */
+}
+
+.upload-progress button {
+  background: none;
+  border: none;
+  color: #fff;
+}
+
+
+.progress-bar {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+
+.progress-bar .progress {
+  height: 3px;
+  background-color: #007bff;
+  width: var(--percent) + '%';
+  transition: width 0.3s ease-in-out;
+}
+
+.preview {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.upload-result {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.upload-result button {
+  width: 24px;
+  height: 24px;
+  background: #999;
+  color: #fff;
+  border: none;
+}
+.upload-result button:hover {
+  background: #f56c6c;
+}

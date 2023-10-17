@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文件上传</title>
+  <link rel="stylesheet" href="./drag.css">
+</head>
+<body>
+  <div class="upload progress">
+    <div class="upload-select">
+      <input type="file">
+    </div>
+    <div class="upload-progress" style="--percent: 20">
+      <div class="progress-bar">
+        <div class="progress-num"></div>
+        <div class="progress"></div>
+        <p>文件上传中...</p>
+        <button>取消</button>
+      </div>
+    </div>
+    <div class="upload-result">
+      <button>X</button>
+    </div>
+    <!-- 预览图 -->
+    <img src="./small.png" alt="" class="preview">
+  </div>
+  <!-- 模拟文件上传 -->
+  <script src="./drag.js"></script>
+  <!-- ajax请求 -->
+  <!-- <script src="./drag-ajax.js"></script> -->
+</body>
+</html>
