@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>长列表虚拟滚动</title>
+    <style>
+      .viewPort {
+        width: 300px;
+        height: 600px;
+        border: 1px solid grey;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        overflow: scroll;
+        background-color: yellowgreen;
+      }
+      /* .scrollBar {
+        height: 1000px;
+      } */
+      .list {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      /* css变量的使用 */
+      .row-item {
+        height: var(--rowHeight);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 可视区域 -->
+      <div class="viewPort" ref="viewPortRef" :style="{'--rowHeight': rowHeight + 'px' }" @scroll="onScroll">
+        <!-- 用高度撑出滚动条 -->
+        <div class="scrollBar" ref="scrollBarRef"></div>
+        <div class="list" ref="listRef">
+          <div v-for="item in showList">
+            <div class="row-item">{{item.num}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const bigList = new Array(200000).fill(null).map((ele, index) => {
+        return {
+          num: index + 1
+        }
+      })
+
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            startIndex: 0,
+            endIndex: 30,
+            rowHeight: 20,
+            viewCount: 30,
+            list: Object.freeze(bigList) // 优化点1: 冻结数据，不需要数据劫持
+          }
+        },
+        methods: {
+          onScroll() {
+            console.log(this.$refs.viewPortRef.scrollTop)
+            /*
+             * 开始索引 = 卷去头部的滚动高度 / 元素的高度
+             * startIndex = scrollTop / rowHeight
+             *
+             * 结束索引 = 开始索引 + 页显示数
+             * endIndex = startIndex + viewPort
+             */
+            const scrollTop = this.$refs.viewPortRef.scrollTop
+            this.startIndex = Math.floor(scrollTop / this.rowHeight)
+            this.endIndex = this.startIndex + this.viewCount
+
+            console.log(this.list.slice(this.startIndex, this.endIndex))
+
+            // 抵消浏览器的滚动
+            this.$refs.listRef.style.transform = `translateY(${scrollTop}px)`
+          }
+        },
+        mounted() {
+          /*
+           * 动态计算高度
+           *  1.可视区域高度 = 每行高度rowHeight * 每页显示的个数viewCount
+           *  2.滚动区域高度 = 每行高度rowHeight * 总数据长度length
+           */
+          this.$refs.viewPortRef.style.height = this.rowHeight * this.viewCount  + 'px'
+          this.$refs.scrollBarRef.style.height = this.rowHeight * this.list.length + 'px'
+        },
+        computed: {
+          showList() {
+            return this.list.slice(this.startIndex, this.endIndex)
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
