@@ -174,3 +174,25 @@ hash算法：md5 (第三方库：spark-md5)
 海量的数据：虚拟滚动列表 🔥
 
 优质文章：[虚拟滚动列表](https://zhuanlan.zhihu.com/p/444778554)
+
+## 8.drag 拖拽事件
+
+> 感悟：前端高手判断
+能否用最简单的知识解决复杂的问题 🔥
+对于高手而言，框架/库这些都是工具，这些工具为他所用，但是不受其所限。可用可不用这些工具 - 开发能力！！！🔥
+
+[拖拽API](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/drag_event)
+
+拖拽API：当一个元素变为可拖拽元素，拖拽它的时候就会触发一系列的事件。
+总之拖拽API就是一系列事件的组合
+
+常用功能：拖拽排序、拖拽文件上传等
+
+知识点
+
+1. 为元素添加属性 draggable 变为可拖拽元素
+2. 拖拽API的使用
+  ondragstart
+  ondragover
+  ondragenter
+  ondrop

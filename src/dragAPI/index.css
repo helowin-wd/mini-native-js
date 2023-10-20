@@ -1,0 +1,83 @@
+body,html {
+  width: 800px;
+}
+h1 {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding-bottom:  15px;
+}
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: inherit;
+  width: 800px;
+}
+.left {
+  height: auto;
+  background-color: #ccc;
+  text-align: center;
+  margin-right: 20px;
+  padding: 10px;
+}
+.left div {
+  margin-bottom: 10px;
+}
+.right {
+  background-color: #ccc;
+  padding: 10px;
+}
+.item {
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+.color1 {
+  background-color: red;
+}
+.color2 {
+  background-color: rgb(0, 255, 34);
+}
+.color3 {
+  background-color: rgb(139, 68, 68);
+}
+.color4 {
+  background-color: rgb(0, 255, 51);
+}
+.color5 {
+  background-color: rgb(0, 166, 255);
+}
+.color6 {
+  background-color: rgba(47, 0, 255, 0.731);
+}
+.color7 {
+  background-color: rgba(0, 255, 149, 0.779);
+}
+
+td {
+  width: 60px;
+  height: 40px;
+  border: 1px solid #000;
+  text-align: center;
+}
+
+thead tr :first-child {
+  width: 45px;
+  border: none;
+}
+
+thead tr td {
+  font-weight: 700;
+}
+
+th {
+  background-color: #999;
+  writing-mode: vertical-lr;
+  letter-spacing: 25px;
+  width: 20px;
+}
+
+.drop-over {
+  background-color: #999;
+}
