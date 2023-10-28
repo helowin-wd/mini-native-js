@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>朗读API</title>
+</head>
+<body>
+  <input id="ipt" type="text">
+  <button id="btn">发音</button>
+
+  <!-- 
+    发音API
+    https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+   -->
+  <script>
+    const btn = document.querySelector('#btn')
+    const ipt = document.querySelector('#ipt')
+
+    btn.onclick = function() {
+      const value = ipt.value
+      // 发音API
+      const voice = new SpeechSynthesisUtterance(value)
+      voice.rate = 0.5
+      voice.volume = 1
+      window.speechSynthesis.speak(voice)
+    }
+  </script>
+</body>
+</html>

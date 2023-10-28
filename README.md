@@ -324,3 +324,12 @@ hash算法：md5 (第三方库：spark-md5)
     4. 一旦加载完成，不需要观察了，调用 unobserve 方法
   -->
 ```
+
+## 朗读API
+
+```html
+<!-- 
+  发音API
+  https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+  -->
+```
