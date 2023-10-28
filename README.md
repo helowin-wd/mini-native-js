@@ -233,7 +233,6 @@ hash算法：md5 (第三方库：spark-md5)
 ### css-下划线导航栏
 
 源码位置：html/underline
-效果图
 ![css-下划线导航栏](./images/underline.png)
 
 ```html
@@ -252,5 +251,29 @@ hash算法：md5 (第三方库：spark-md5)
   4. css波浪线（后继兄弟选择器）
     https://developer.mozilla.org/zh-CN/docs/Web/CSS/Subsequent-sibling_combinator
 -->
+
+```
+
+### 步骤条
+
+源码位置：html/steps
+
+![css-步骤条](./images/steps.png)
+
+```html
+ <!-- 
+  编程思想：
+    1. 准备 基本步骤条结构
+    2. 准备 整体样式
+    3. 实现 序号自定义
+    4. 实现引导线
+    5. 基于 active 类名，控制高亮状态
+    6. 测试调优
+
+  知识点
+    1. flex布局自适应
+    2. CSS计数器
+    https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters
+ -->
 
 ```

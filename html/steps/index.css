@@ -1,0 +1,73 @@
+.steps {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 20px 10px;
+}
+
+/* 定义计数器，每有一个li递增一次 */
+.steps {
+  list-style: none;
+  counter-reset: order; /* 定义css计数器 */
+}
+.steps > li {
+  counter-increment: order; /* 选择器增量 */
+}
+
+/* 行内伪元素，实现计数器 */
+.steps > li::before {
+  content: counter(order);  /* 使用计数器的数字作为内容 */
+  display: inline-block;
+  width: 1.4rem;
+  line-height: 1.4rem;
+  margin-right: 0.5rem;
+  text-align: center;
+  border-radius: 50%;
+  /* 这里故意不设置颜色，将来使用继承的颜色 */
+  border: 1px solid;
+  flex-shrink: 0;
+}
+
+/* 步骤项引导线 */
+.steps > li {
+  flex: auto; /* 弹性宽度（根据内容调整） */
+  display: flex;
+  align-items: center;
+}
+.steps > li:not(:last-child)::after {
+  content: '';
+  flex: 1; /* 内部再开启flex自适应 */
+  margin: 0 1rem;
+  border-bottom: 1px solid;
+  opacity: .6;
+}
+/* 基于active类名，控制状态 */
+.steps {
+  --normal-color: #666;
+  --active-color: #06e;
+}
+/* 定义变量，默认都是高亮蓝色 */
+.steps > li {
+  color: var(--active-color);
+}
+
+/* 设计激活时数字样式 */
+.steps > .active::before {
+  color: #fff;
+  background: var(--active-color);
+  border-color: var(--active-color);
+}
+/* 后面的线和step设置成黑色 */
+.steps > .active::after,
+.steps > .active ~ li {
+  color: var(--normal-color);
+}
+
+.steps > li {
+  /* 弹性宽度（根据内容调整） */
+  float: auto;
+}
+/* 最后一项，没必要等分宽度 */
+.steps > li:last-child {
+  flex: none;
+}

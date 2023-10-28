@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>步骤条</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <!-- 
+  编程思想：
+    1. 准备 基本步骤条结构
+    2. 准备 整体样式
+    3. 实现 序号自定义
+    4. 实现引导线
+    5. 基于 active 类名，控制高亮状态
+    6. 测试调优
+
+  知识点
+    1. flex布局自适应
+    2. CSS计数器
+    https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters
+ -->
+  <body>
+    <ol class="steps">
+      <li>注册</li>
+      <li>域认证</li>
+      <li class="active">身份校验</li>
+      <li>开通账户</li>
+      <li>测试新增</li>
+      <li>开通账户1</li>
+      <li>开通账户2</li>
+    </ol>
+  </body>
+
+  <script>
+    const lis = document.querySelectorAll('li')
+
+    lis.forEach((v, i) => {
+      v.addEventListener('click', () => {
+        lis.forEach(li => li.classList.remove('active'))
+        v.classList.add('active')
+      })
+    })
+  </script>
+</html>
