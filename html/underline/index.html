@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css-下划线导航栏</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <!-- 
+      编程思路：css-下划线导航栏
+      1. 准备 整体导航结构
+      2. 准备 整体导航样式
+      3. 添加修饰性下划线
+      4. js辅助切换active类
+      5. 添加切换时，线的状态
+
+    考点
+      1. 元素定位
+      2. active类名切换， 控制位移
+      3. Transition 过渡动画
+      4. css波浪线（后继兄弟选择器）
+        https://developer.mozilla.org/zh-CN/docs/Web/CSS/Subsequent-sibling_combinator
+    -->
+
+    <ul class="nav">
+      <li class="active"><a href="#">首页特价</a></li>
+      <li><a href="#">商城甩卖</a></li>
+      <li><a href="#">个人中心</a></li>
+      <div class="line"></div>
+    </ul>
+
+    <script>
+      const lis = document.querySelectorAll('li')
+
+      lis.forEach((v, i) => {
+        v.addEventListener('click', () => {
+          // 移除所有元素的active类
+          lis.forEach(li => li.classList.remove('active'))
+          // 添加active类
+          v.classList.add('active')
+        })
+      })
+    </script>
+  </body>
+</html>

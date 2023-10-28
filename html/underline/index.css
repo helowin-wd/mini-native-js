@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+.nav {
+  display: flex;
+  width: 450px;
+  height: 40px;
+  line-height: 40px;
+  margin: 50px auto;
+  position: relative;
+}
+.nav li {
+  flex: 1;
+  text-align: center;
+}
+.nav a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 20px;
+  transition: all .5s;
+}
+.active a {
+  color: #666;
+}
+/* 下划线 */
+.line {
+  position: absolute;
+  left: 30px;
+  bottom: 0;
+  height: 2px;
+  width: 90px;
+  background-color: orange;
+  transition: all .5s;
+}
+/* 添加对应切换时线的状态 */
+li:nth-child(1).active ~ .line {
+  transform: translateX(0);
+  background-color: orange;
+}
+li:nth-child(2).active ~ .line {
+  transform: translateX(150px);
+  background-color: blue;
+}
+li:nth-child(3).active ~ .line {
+  transform: translateX(300px);
+  background-color: red;
+}
