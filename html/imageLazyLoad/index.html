@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图片懒加载</title>
+    <style>
+      .item {
+        width: 100%;
+        height: 480px;
+        margin: 20px 0;
+      }
+      .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <!-- 
+    图片懒加载如何实现呢？
+      1. 创建 IntersectionObserver 对象
+      2. 对所有的图片进行观察，调用observe方法
+      3. 获取所有的观察元素entries，遍历找到其isIntersecting
+         获取交叉的目标元素，将真正的图片地址赋予src属性
+         img.src = img.dataset.src
+      4. 一旦加载完成，不需要观察了，调用 unobserve 方法
+   -->
+  <body>
+    <div class="list">
+      <div class="item">
+        <img src="../../images/default.jpeg" data-src="../../images/img1.jpeg" />
+      </div>
+      <div class="item">
+        <img src="../../images/default.jpeg" data-src="../../images/img2.jpg" />
+      </div>
+      <div class="item">
+        <img src="../../images/default.jpeg" data-src="../../images/img3.jpg" />
+      </div>
+      <div class="item">
+        <img src="../../images/default.jpeg" data-src="../../images/img4.jpeg" />
+      </div>
+      <div class="item">
+        <img src="../../images/default.jpeg" data-src="../../images/img5.jpeg" />
+      </div>
+      <div class="item">
+        <img src="../../images/default.jpeg" data-src="../../images/img6.jpeg" />
+      </div>
+      <div class="item">
+        <img src="../../images/default.jpeg" data-src="../../images/img7.jpeg" />
+      </div>
+    </div>
+
+    <script>
+      /**
+       * 创建 IntersectionObserver 对象
+       * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/IntersectionObserver
+       * https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver
+       * */
+      const ob = new IntersectionObserver(
+        entries => {
+          console.log('回调函数，在交叉改变的时候运行', entries)
+          for (let entry of entries) {
+            if (entry.isIntersecting) {
+              // 交叉了
+              // 交叉的目标元素
+              const img = entry.target
+              img.src = img.dataset.src
+
+              // 一旦加载完成，不需要观察了
+              ob.unobserve(img)
+            }
+          }
+        },
+        {
+          // root: null, // 默认是视口，配置的是观察的元素和谁进行交叉
+          // rootMargin: '0px', // 根据视口的大小，向外扩展 0px
+          threshold: 0 // 交叉比例，0 没有交叉（图片刚接触可视区），1完成交叉（图片完整进入可视区域）
+        }
+      )
+
+      // 获取所有的图片，进行观察
+      const imgs = document.querySelectorAll('img[data-src]')
+
+      // 对所有的图片进行观察
+      imgs.forEach(img => {
+        // 开始观察
+        ob.observe(img)
+      })
+    </script>
+  </body>
+</html>
