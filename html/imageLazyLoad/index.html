@@ -22,6 +22,9 @@
   <!-- 
     图片懒加载如何实现呢？
       1. 创建 IntersectionObserver 对象
+        https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/IntersectionObserver
+        https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver
+
       2. 对所有的图片进行观察，调用observe方法
       3. 获取所有的观察元素entries，遍历找到其isIntersecting
          获取交叉的目标元素，将真正的图片地址赋予src属性
