@@ -1,0 +1,103 @@
+.wrapper {
+  /* 开启flex, 便于子元素计算高度 */
+  display: flex;
+  margin: 50px auto;
+  width: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 
+  10px 10px 30px #bebebe,
+  -10px -10px 30px #ffffff
+  ;
+}
+
+/* 实现多行溢出省略 */
+.text {
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  text-align: justify;
+  /* 通过此处自定义行数 */
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  position: relative;
+}
+/* 复选框默认隐藏 */
+.exp {
+  display: none;
+}
+
+/* 实现按钮切换 */
+.btn {
+  margin-left: 10px;
+  font-size: 16px;
+  padding: 0 8px;
+  background: #3f51B5;
+  line-height: 24px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+/* 按钮样式，伪元素设置文本，便于切换 */
+.btn::before {
+  content: '展开';
+}
+/* 
+  实现按钮切换
+  label点击 - 触发选中 - 切换文本
+*/
+.exp:checked + .text .btn::before {
+  content: '收起';
+}
+
+/* 按钮浮动到右下角（难点） */
+.btn {
+  /* 按钮右浮动 */
+  float: right; 
+  /* 清除浮动，让按钮下移 */
+  clear: both;
+}
+/* 再右浮动一个元素，动态计算高度，把按钮挤下去 */
+.text::before {
+  content: '';
+  height: calc(100% - 24px);
+  float: right;
+
+  /* 注释：辅助样式，便于观察样式情况 */
+  /* width: 10px;
+  background-color: blue; */
+}
+
+/* 修改自定义行数，也能自适应 */
+/* .text {
+  -webkit-line-clamp: 6;
+} */
+
+/* 
+  基于选中状态，控制展开行数
+  选中时，行数拉高
+*/
+.exp:checked + .text {
+  -webkit-line-clamp: 999;
+}
+
+/* 
+  测试优化，文本少的情况 
+  文本少无需显示展开
+
+  效果没看到？？
+*/
+.text::after {
+  content: '';
+  width: 999vw;
+  height: 999vw;
+  position: absolute;
+  box-shadow: inset calc(100px - 999vw) calc(30px - 999vw) 0 0 #fff;
+  margin-left: -100px;
+}
+/* 定位伪元素在文本最后，如果没隐藏，就可以盖住按钮 */
+.exp:checked+.text::after {
+  visibility: hidden;
+}

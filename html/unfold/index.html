@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>多行文本展开（多行文本省略，浮动，复选框）</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <!-- 
+    需求：
+      1.文本内容 多 显示按钮 和 省略号
+      2.文本内容 少 不显示按钮 和 省略号
+      3.默认 三行省略，支持自定义行数
+
+    编程思维：
+      1.准备基本结构样式
+      2.控制多行文本省略
+      3.控制按钮切换（基于checkbox）
+      4.按钮浮动到右下角（清除浮动）
+      5.基于选中状态，控制多行行数，完成展开
+      6.优化内容少的情况
+    
+    知识点
+      1.多行文本省略
+      2.复选框控制状态（巧妙🔥）
+      3.浮动&清除浮动技巧
+   -->
+
+    <div class="wrapper">
+      <!-- 
+        将来需要隐藏的复选框（用于切换） 
+        利用 checkbox 实现折叠切换
+      -->
+      <input id="exp1" class="exp" type="checkbox" />
+
+      <!-- 核心文本区域 -->
+      <div class="text">
+        <!-- 关联复选框 label 按钮 -->
+        <label class="btn" for="exp1"></label>
+        CSS 计数器可让你根据内容在文档中的位置调整其显示的外观。
+        例如，你可以使用计数器自动为网页中的标题编号，或者更改有序列表的编号。 本质上 CSS 计数器是由 CSS
+        维护的变量，这些变量可能根据 CSS 规则跟踪使用次数以递增或递减。
+        你可以自定义一个计数器，也可以修改 list-item 这一默认生成的应用于所有有序列表的计数器
+      </div>
+    </div>
+  </body>
+</html>
