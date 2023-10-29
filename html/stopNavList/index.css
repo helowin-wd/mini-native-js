@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(200deg, #eef1f5, #e6e9f0);
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  background-color: #02abf6;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  overflow: hidden;
+}
+
+.nav .item {
+  position: relative;
+  cursor: pointer;
+  padding: 0 10px;
+  width: 150px;
+  height: 100%;
+  transition: all .4s ease;
+}
+.nav .item a {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100px;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+}
+.nav .item a span {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -50%;
+  text-align: center;
+  opacity: 0;
+  transition: all .4s ease;
+}
+.nav .item a i {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  font-size: 32px;
+  transition: all .4s ease;
+}
+/* 添加hover效果：整体变色；文字显示；图标上移 */
+.nav .item:hover {
+  background-color: #0595ff;
+}
+.nav .item:hover a span {
+  opacity: 1;
+  bottom: 18px;
+}
+.nav .item:hover a i {
+  transform: translateY(-95%);
+}

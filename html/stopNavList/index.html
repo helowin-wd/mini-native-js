@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css-悬停导航栏</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/c/font_4090357_z2qpnic06um.css" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <!-- 
+      编程思路
+        1.导航整体结构（4个li包含图标、文字）
+        2.导航整体样式（flex布局 横向布局）
+        3.悬停动效（透明度，位移，底色）
+
+      知识点
+        flex布局、透明度、位移、过渡动画
+     -->
+    <ul class="nav">
+      <li class="item">
+        <a href="#">
+          <i class="iconfont icon-home"></i>
+          <span>首页</span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+          <i class="iconfont icon-gift"></i>
+          <span>礼包</span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+          <i class="iconfont icon-message"></i>
+          <span>消息</span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="#">
+          <i class="iconfont icon-money"></i>
+          <span>钱包</span>
+        </a>
+      </li>
+    </ul>
+  </body>
+</html>

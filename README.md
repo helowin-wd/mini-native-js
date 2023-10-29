@@ -327,7 +327,14 @@ hash算法：md5 (第三方库：spark-md5)
 
 ### 导航下拉菜单
 
+源代码位置：html/downSelect
+
 ![导航下拉菜单](./images/downSelect.png)
+
+### 悬停导航栏
+
+源代码位置：html/stopNavList
+![悬停导航栏](./images/stopNavList.gif)
 
 ## 朗读API
 
