@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <!-- 
+      编程思路：
+        1. 准备 基本结构（导航容器、一级菜单、二级菜单）
+        2. 设置hover时 提示一级菜单 + 二级菜单的切换效果
+      
+      知识点
+        1.通过设置hover之后一级菜单+二级菜单的转换和透明度的切换，实现导航提示的切换
+     -->
+    <ul class="menu">
+      <li><a href="#">Home</a></li>
+      <li>
+        <a href="#">Menu1</a>
+        <ul class="submenu">
+          <li><a href="#">Submenu a</a></li>
+          <li><a href="#">Submenu b</a></li>
+          <li><a href="#">Submenu c</a></li>
+          <li><a href="#">Submenu d</a></li>
+          <li><a href="#">Submenu e</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Menu2</a>
+        <ul class="submenu">
+          <li><a href="#">Submenu a</a></li>
+          <li><a href="#">Submenu b</a></li>
+          <li><a href="#">Submenu c</a></li>
+          <li><a href="#">Submenu d</a></li>
+          <li><a href="#">Submenu e</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Menu3</a>
+        <ul class="submenu">
+          <li><a href="#">Submenu a</a></li>
+          <li><a href="#">Submenu b</a></li>
+          <li><a href="#">Submenu c</a></li>
+          <li><a href="#">Submenu d</a></li>
+          <li><a href="#">Submenu e</a></li>
+        </ul>
+      </li>
+      <li><a href="#">More</a></li>
+    </ul>
+  </body>
+</html>
