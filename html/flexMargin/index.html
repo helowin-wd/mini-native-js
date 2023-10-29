@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex+margin实现的布局</title>
+    <!-- 
+    margin-left: auto; 吃掉左边的剩余空间，感官上元素跑右边去了
+    margin-right: auto; 吃掉右边的剩余空间，感官上元素跑左边去了
+
+    margin: auto; 元素吃掉剩余空间，元素水平垂直居中
+   -->
+    <style>
+      .container {
+        display: flex;
+        align-items: center;
+        width: 80%;
+        height: 100px;
+        background-color: #ccc;
+        margin-bottom: 10px;
+      }
+
+      /* 布局4 */
+      .container4 {
+        flex-wrap: wrap;
+        height: auto;
+      }
+
+      .item {
+        width: 50px;
+        height: 50px;
+      }
+
+      .item1 {
+        background-color: #eb6a5f;
+      }
+      .item2 {
+        background-color: orange;
+      }
+      .item3 {
+        background-color: #0ee848;
+      }
+      .item4 {
+        background-color: #4511e0;
+      }
+
+      /* 
+        剩余的总空间 = 父元素100%宽度 - 元素宽度*元素数量
+        每个元素分配的剩余空间 = 剩余空间/元素数量
+        每个元素分配的剩余空间(左右各占一半) 所以再除以2
+      */
+      .container4 .item {
+        --n: 5;
+        --gap: calc((100% - 50px * var(--n)) / var(--n) / 2);
+        margin: 10px var(--gap);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container container1">
+      <div class="item1 item" style="margin: auto"></div>
+    </div>
+
+    <div class="container container2">
+      <div class="item1 item"></div>
+      <div class="item2 item"></div>
+      <div class="item3 item" style="margin-left: auto"></div>
+    </div>
+
+    <div class="container container3">
+      <div class="item1 item"></div>
+      <div class="item2 item"></div>
+      <div class="item3 item" style="margin: 0 auto"></div>
+      <div class="item4 item"></div>
+    </div>
+
+    <div class="container container4">
+      <div class="item item1"></div>
+      <div class="item item2"></div>
+      <div class="item item3"></div>
+      <div class="item item4"></div>
+      <div class="item item1"></div>
+      <div class="item item2"></div>
+      <div class="item item3"></div>
+      <div class="item item4"></div>
+      <div class="item item1"></div>
+      <div class="item item2"></div>
+      <div class="item item3"></div>
+      <div class="item item4"></div>
+    </div>
+  </body>
+</html>

@@ -336,6 +336,12 @@ hash算法：md5 (第三方库：spark-md5)
 源代码位置：html/stopNavList
 ![悬停导航栏](./images/stopNavList.gif)
 
+### flex + margin
+
+[flex + margin](https://www.bilibili.com/video/BV1YF411m7Yv/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=ebd9d00d7620dc2773735ca3b6ad0ae8)
+
+![flex + margin 页面布局](./images/flex-margin.png)
+
 ## 朗读API
 
 ```html
