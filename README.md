@@ -353,6 +353,8 @@ hash算法：md5 (第三方库：spark-md5)
 
 ## （音视频）自动播放策略 🔥
 
+[自动播放策略](https://www.bilibili.com/video/BV1Gw411C745/?spm_id_from=333.337.search-card.all.click&vd_source=ebd9d00d7620dc2773735ca3b6ad0ae8)
+
 Chrome 浏览器的自动播放策略
 
 > 自动播放策略自Chrome66版本开始，默认不允许网页实现自动播放音频和视频。
