@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>方案1: 互动后播放</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <video src="./test.mp4"></video>
+    <div class="modal">
+      <button class="btn">开始播放</button>
+    </div>
+  </div>
+
+  <!-- 
+    方案1: 互动后播放
+    先尝试自动播放，若发生异常，则引导用户进行互动操作，然后再进行播放
+   -->
+
+  <script>
+    const video = document.querySelector('video');
+    const modal = document.querySelector('.modal');
+    const btn = document.querySelector('.btn');
+    async function play() {
+      try {
+        await video.play();
+        // 播放成功，蒙层消失，移除点击事件
+        modal.style.display = 'none';
+        btn.removeEventListener('click', play);
+      } catch (err) {
+        // 自动播放失败
+        // 显示蒙层，引导用户点击播放按钮
+        modal.style.display = 'flex';
+        btn.addEventListener('click', play);
+      }
+    }
+    play();
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>方案2: 互动后出声</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <video src="./test.mp4"></video>
+    <div class="modal">
+      <button class="btn">打开声音</button>
+    </div>
+  </div>
+
+  <!-- 
+  方案2: 互动后出声（推荐：如抖音🔥）
+    先静音播放，然后根据是否能自动播放决定是否取消静音，如果：
+    1. 能自动播放，取消静音
+    2. 不能自动播放，引导用户进行互动操作后取消静音
+   -->
+
+  <script>
+    const video = document.querySelector('video');
+    const modal = document.querySelector('.modal');
+    const btn = document.querySelector('.btn');
+    function play() {
+      // 先静音播放
+      video.muted = true; // 静音
+      video.play();
+      // 然后根据是否能自动播放决定是否取消静音
+      const ctx = new AudioContext();
+      // 能自动播放，state 状态是 'running'
+      const canAutoPlay = ctx.state === 'running'
+      ctx.close(); // 关闭上下文，释放资源
+      if (canAutoPlay) {
+        // 能自动播放
+        video.muted = false; // 取消静音
+        // 取消蒙层
+        modal.style.display = 'none';
+        // 移除点击事件
+        btn.removeEventListener('click', play);
+      } else {
+        // 不能自动播放
+        // 显示蒙层
+        modal.style.display = 'flex';
+        // 添加点击事件
+        btn.addEventListener('click', play);
+      }
+    }
+    play();
+  </script>
+</body>
+</html>
