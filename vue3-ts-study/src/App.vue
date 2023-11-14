@@ -2,6 +2,7 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
+    <router-link to="/WaterMark">实现防篡改的水印</router-link>
   </nav>
   <router-view/>
 </template>

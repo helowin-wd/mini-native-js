@@ -394,3 +394,20 @@ Chrome 的自动播放策略很简单：
 
 1. 能自动播放，取消静音
 2. 不能自动播放，引导用户进行互动操作后取消静音
+
+## 实现防篡改的水印
+
+前端水印效果：成本低，做一些简单的防护
+
+![水印效果图](./images/waterMark.jpg)
+
+[学习资源](https://www.bilibili.com/video/BV18c411972C/?spm_id_from=333.1007.tianma.1-1-1.click&vd_source=ebd9d00d7620dc2773735ca3b6ad0ae8)
+
+* 第一步：生成水印
+
+水印其实就是一个div, background-image: url()
+使用canvas绘制生成 DataURL 作为背景图，背景图重复
+
+* 第二步：防篡改
+
+[MutationObserver 接口提供了监视对 DOM 树所做更改的能力](https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver)
